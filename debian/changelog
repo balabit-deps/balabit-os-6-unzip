@@ -1,3 +1,28 @@
+unzip (6.0-20ubuntu1.1) xenial-security; urgency=medium
+
+  * SECURITY UPDATE: buffer overflow in unzip (LP: #387350)
+    - debian/patches/17-cve-2014-9913-unzip-buffer-overflow: Accommodate
+      printing an oversized compression method number in list.c.
+    - CVE-2014-9913 
+  * SECURITY UPDATE: buffer overflow in zipinfo (LP: #1643750)
+    - debian/patches/18-cve-2016-9844-zipinfo-buffer-overflow: Accommodate an
+      oversized compression method number in zipinfo.c.
+    - CVE-2016-9844
+  * SECURITY UPDATE: buffer overflow in password protected ZIP archives
+    - debian/patches/20-cve-2018-1000035-unzip-buffer-overflow.patch: Perform
+      check before allocating memory in fileio.c.
+    - CVE-2018-1000035
+  * SECURITY UPDATE: denial of service (resource consumption)
+    - debian/patches/22-cve-2019-13232-fix-bug-in-undefer-input.patch: Fix bug
+      in undefer_input() of fileio.c that misplaced the input state.
+    - debian/patches/23-cve-2019-13232-zip-bomb-with-overlapped-entries.patch:
+      Detect and reject a zip bomb using overlapped entries.
+    - debian/patches/24-cve-2019-13232-do-not-raise-alert-for-misplaced-central-directory.patch:
+      Do not raise a zip bomb alert for a misplaced central directory.
+    - CVE-2019-13232
+
+ -- Avital Ostromich <avital.ostromich@canonical.com>  Wed, 25 Nov 2020 20:01:25 -0500
+
 unzip (6.0-20ubuntu1) xenial; urgency=medium
 
   * Resynchronise with Debian. Remaining changes:
